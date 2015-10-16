@@ -22,5 +22,7 @@ class Entry: Equatable {
 }
 
 func ==(lhs: Entry, rhs: Entry) -> Bool {
-    return true
+    return (lhs.title == rhs.title) &&
+           (lhs.bodyText == rhs.bodyText) &&
+           (lhs.timestamp == rhs.timestamp)
 }

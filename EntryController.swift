@@ -13,7 +13,7 @@ class EntryController {
     
     //Add entries Array property, set it to empty in the initializer
     // TODO: is our singleton correct?
-    static let singleton = EntryController()
+    static let sharedController = EntryController()
     
     // Create empty entries array
     var entriesArray: [Entry] = []
