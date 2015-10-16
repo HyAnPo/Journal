@@ -13,9 +13,11 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet weak var entryTitle: UITextField!
     @IBOutlet weak var bodyText: UITextView!
     
+    var entry: Entry?
+    
     // TODO: What are we doing wrong!!!!
     func updateWithEntry(entry: Entry) {
-        //self.entry
+        self.entry = entry
         
         self.entryTitle.text = entry.title
         self.bodyText.text = entry.bodyText

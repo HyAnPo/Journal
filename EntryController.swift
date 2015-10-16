@@ -11,6 +11,8 @@ import Foundation
 
 class EntryController {
     
+    private let entriesKey = "entries"
+    
     //Add entries Array property, set it to empty in the initializer
     // TODO: is our singleton correct?
     static let sharedController = EntryController()
@@ -32,5 +34,15 @@ class EntryController {
             self.entriesArray.removeAtIndex(entryIndex)
         }
     }
+    
+    //NSUserdefaults methods
+    func saveToPersistentStorage() {
+        let entryDictionaries = self.entriesArray.map({$0.dictionaryCopy()})
+        NSUserDefaults.standardUserDefaults().setValue(entryDictionaries, forKey: entriesKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+    }
+    
+    
     
 }
