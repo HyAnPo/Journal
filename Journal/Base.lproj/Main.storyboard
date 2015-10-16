@@ -57,11 +57,65 @@
                             <constraint firstItem="T0f-bv-uEd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ee5-JA-uHH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bcX-4Q-ll4"/>
+                    <navigationItem key="navigationItem" id="bcX-4Q-ll4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zb2-1q-HPg">
+                            <connections>
+                                <segue destination="e7j-vj-Srj" kind="show" id="uf4-uo-Bsi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="337" y="399"/>
+            <point key="canvasLocation" x="379" y="399"/>
+        </scene>
+        <!--Entry Detail View Controller-->
+        <scene sceneID="9WV-Gy-9uR">
+            <objects>
+                <viewController id="e7j-vj-Srj" customClass="EntryDetailViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CIs-vW-D2E"/>
+                        <viewControllerLayoutGuide type="bottom" id="xfx-iV-QOs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nPd-8R-KFV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euF-Hw-FFN">
+                                <rect key="frame" x="63" y="72" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9mx-C4-tWW">
+                                <rect key="frame" x="63" y="122" width="240" height="128"/>
+                                <animations/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2g-k2-U9B">
+                                <rect key="frame" x="69" y="268" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bC-y8-R57">
+                                <rect key="frame" x="69" y="306" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="bodyText" destination="9mx-C4-tWW" id="xU3-y5-1c6"/>
+                        <outlet property="entryTitle" destination="euF-Hw-FFN" id="3kG-KM-b9a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2tQ-gL-ddq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4tb-gu-Kw0">

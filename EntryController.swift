@@ -16,7 +16,7 @@ class EntryController {
     static let sharedController = EntryController()
     
     // Create empty entries array
-    var entriesArray: [Entry] = []
+    var entriesArray = [(Entry(title: "Hello", bodyText: "Hi"))]
     
     // Add entry function
     func addEntry(entry: Entry) -> () {
