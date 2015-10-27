@@ -48,4 +48,21 @@ class EntryListTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toShowEntry" {
+            
+            if let detailViewController = segue.destinationViewController as? EntryDetailViewController {
+                
+                _ = detailViewController.view
+                
+                let indexPath = tableView.indexPathForSelectedRow
+                
+                if let selectedRow = indexPath?.row {
+                    let entry = EntryController.sharedController.entries[selectedRow]
+                    detailViewController.updateWithEntry(entry)
+                }
+            }
+        }
+    }
 }

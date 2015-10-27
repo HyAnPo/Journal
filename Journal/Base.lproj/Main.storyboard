@@ -19,11 +19,14 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LAu-qs-rIw" id="l8A-zf-flY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="iho-ez-v0N" kind="show" identifier="toShowEntry" id="HFP-fA-hzb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,7 +37,7 @@
                     <navigationItem key="navigationItem" id="MNk-tQ-N2i">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lZl-7F-rnf">
                             <connections>
-                                <segue destination="iho-ez-v0N" kind="show" identifier="addEntry" id="Uzd-MW-HVe"/>
+                                <segue destination="iho-ez-v0N" kind="show" identifier="toAddEntry" id="Uzd-MW-HVe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -43,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="1031" y="477"/>
         </scene>
-        <!--Title-->
+        <!--EntryDetailViewController-->
         <scene sceneID="MgD-e2-jDw">
             <objects>
-                <viewController id="iho-ez-v0N" customClass="EntryDetailViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="EntryDetailViewController" id="iho-ez-v0N" customClass="EntryDetailViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CUQ-7f-MGR"/>
                         <viewControllerLayoutGuide type="bottom" id="OPA-tj-3U4"/>
@@ -58,6 +61,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Journal Entry Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="db8-89-6gI">
                                 <rect key="frame" x="20" y="72" width="560" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -86,7 +90,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="plI-JD-BoR">
                                 <rect key="frame" x="20" y="131" width="560" height="258"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -127,7 +131,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="BkM-dX-VES">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Xop-gr-6D3"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Xop-gr-6D3">
+                            <color key="tintColor" red="0.47028702690000002" green="0.98046176070000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="iho-ez-v0N" id="jUG-oq-jLE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -159,4 +168,7 @@
             <point key="canvasLocation" x="336" y="477"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HFP-fA-hzb"/>
+    </inferredMetricsTieBreakers>
 </document>
