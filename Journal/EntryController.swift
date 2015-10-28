@@ -10,6 +10,8 @@ import Foundation
 
 class EntryController {
     
+    private let entriesKey = "entries"
+    
     
     // MARK: Had to reference the master for help with shared instance
     static let sharedController = EntryController()
@@ -18,6 +20,8 @@ class EntryController {
     
     init() {
         self.entries = []
+        
+        self.loadFromPersistentStorage()
     }
     
         // MARK: - Study
@@ -26,6 +30,8 @@ class EntryController {
             // adds the entry parameter to the entries array
             
             entries.append(entry)
+            
+            saveToPersistentStorage()
         }
         
         // MARK: Study
@@ -35,6 +41,28 @@ class EntryController {
             // This creates a let to hold the index of an entry if it exists
             if let entryIndex = entries.indexOf(entry) {
                 entries.removeAtIndex(entryIndex)
+                
+                saveToPersistentStorage()
             }
         }
+    
+    func loadFromPersistentStorage() {
+        //MARK: - Study
+        
+        // Takes the dictionary that was created from an object and casts it into a new dictionary
+        let entryDictionariesFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey(entriesKey) as? [Dictionary<String, AnyObject>]
+        
+        if let entryDictionaries = entryDictionariesFromDefaults {
+            self.entries = entryDictionaries.map({Entry(dictionary: $0)!})
+        }
+    }
+    
+    func saveToPersistentStorage() {
+        
+        //MARK: - Study
+        //I don't understand this syntax
+        let entryDictionaries = self.entries.map({$0.dictionaryCopy()})
+        
+        NSUserDefaults.standardUserDefaults().setObject(entryDictionaries, forKey: entriesKey)
+    }
 }

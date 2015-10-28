@@ -14,11 +14,11 @@ class Entry: Equatable {
     private let timestampKey = "timestamp"
     private let bodyTextKey = "bodyText"
     
-    let title: String
-    let timestamp: NSDate
-    let bodyText: String
+    var title: String
+    var timestamp: NSDate
+    var bodyText: String
     
-    init(title: String, timestamp: NSDate, bodyText: String) {
+    init(title: String, timestamp: NSDate = NSDate(), bodyText: String) {
         self.title = title
         self.timestamp = NSDate()
         self.bodyText = bodyText

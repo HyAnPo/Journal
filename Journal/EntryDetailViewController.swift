@@ -22,9 +22,20 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // MARK: - Study
     @IBAction func saveButtonTapped(sender: UIBarButtonItem) {
         
+        if let entry = self.entry {
+            entry.title = self.titleTextField.text!
+            entry.bodyText = self.bodyTextField.text
+            entry.timestamp = NSDate()
+        } else {
+            let newEntry = Entry(title: self.titleTextField.text!, bodyText: self.bodyTextField.text)
+            EntryController.sharedController.addEntry(newEntry)
+            self.entry = newEntry
+        }
         
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

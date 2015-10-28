@@ -15,6 +15,12 @@ class EntryListTableViewController: UITableViewController {
 
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
