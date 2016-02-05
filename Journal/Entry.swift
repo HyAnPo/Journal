@@ -16,7 +16,7 @@ func ==(lhs: Entry, rhs: Entry) -> Bool {
 class Entry: Equatable {
     
     var timestamp: NSDate
-    let title: String
+    var title: String
     var body: String?
     
     init(timestamp: NSDate = NSDate(), title: String, body: String?) {

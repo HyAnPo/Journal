@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240099881C64571400F9D071 /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240099871C64571400F9D071 /* EntryListTableViewController.swift */; };
+		2400998A1C645E7500F9D071 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240099891C645E7500F9D071 /* DetailViewController.swift */; };
 		24EFD8381C640C0100DA0AF6 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFD8371C640C0100DA0AF6 /* Entry.swift */; };
 		24EFD83A1C640CB600DA0AF6 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFD8391C640CB600DA0AF6 /* EntryController.swift */; };
 		68816AC81BBB5405000569CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68816AC71BBB5405000569CE /* AppDelegate.swift */; };
-		68816ACA1BBB5405000569CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68816AC91BBB5405000569CE /* ViewController.swift */; };
 		68816ACD1BBB5405000569CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68816ACB1BBB5405000569CE /* Main.storyboard */; };
 		68816ACF1BBB5405000569CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68816ACE1BBB5405000569CE /* Assets.xcassets */; };
 		68816AD21BBB5405000569CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68816AD01BBB5405000569CE /* LaunchScreen.storyboard */; };
@@ -36,11 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240099871C64571400F9D071 /* EntryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
+		240099891C645E7500F9D071 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		24EFD8371C640C0100DA0AF6 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		24EFD8391C640CB600DA0AF6 /* EntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		68816AC41BBB5405000569CE /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68816AC71BBB5405000569CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68816AC91BBB5405000569CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		68816ACC1BBB5405000569CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68816ACE1BBB5405000569CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68816AD11BBB5405000569CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,8 +106,9 @@
 				68816AC71BBB5405000569CE /* AppDelegate.swift */,
 				24EFD8371C640C0100DA0AF6 /* Entry.swift */,
 				24EFD8391C640CB600DA0AF6 /* EntryController.swift */,
-				68816AC91BBB5405000569CE /* ViewController.swift */,
 				68816ACB1BBB5405000569CE /* Main.storyboard */,
+				240099891C645E7500F9D071 /* DetailViewController.swift */,
+				240099871C64571400F9D071 /* EntryListTableViewController.swift */,
 				68816ACE1BBB5405000569CE /* Assets.xcassets */,
 				68816AD01BBB5405000569CE /* LaunchScreen.storyboard */,
 				68816AD31BBB5405000569CE /* Info.plist */,
@@ -262,8 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				24EFD8381C640C0100DA0AF6 /* Entry.swift in Sources */,
-				68816ACA1BBB5405000569CE /* ViewController.swift in Sources */,
 				24EFD83A1C640CB600DA0AF6 /* EntryController.swift in Sources */,
+				2400998A1C645E7500F9D071 /* DetailViewController.swift in Sources */,
+				240099881C64571400F9D071 /* EntryListTableViewController.swift in Sources */,
 				68816AC81BBB5405000569CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
