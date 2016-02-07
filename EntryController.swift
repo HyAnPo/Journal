@@ -10,22 +10,44 @@ import Foundation
 
 class EntryController {
     
+    private let kEntriesKey = "entries"
+    
     static let sharedInstance = EntryController()
     
     var entriesArray: [Entry] = []
     
+    init() {
+        loadFromUserDefaults()
+    }
     
-    //Create
+    
+    //CREATE
     func addEntry(entry: Entry) {
         entriesArray.append(entry)
-    }
-    
-    //Update
-    func updateEntry(entry: Entry) {
         
+        saveToPersistence(self.entriesArray)
     }
     
-    //Delete
+    //READ
+    func loadFromUserDefaults() {
+        
+        let dataFromUserDefaults = NSUserDefaults.standardUserDefaults().objectForKey(kEntriesKey) as? [[String: AnyObject]]
+        
+        if let entriesDictionary = dataFromUserDefaults {
+            self.entriesArray = entriesDictionary.map({ Entry(dictionary: $0)! })
+        }
+    }
+    
+    //UPDATE
+    func saveToPersistence(entriesArray: [Entry]) {
+        
+        //Convert array of entry objects into dictionary
+        let dictionary = entriesArray.map({ $0.dictionaryCopy() })
+        
+        NSUserDefaults.standardUserDefaults().setValue(dictionary, forKey: kEntriesKey)
+    }
+    
+    //DELETE
     func deleteEntry(entry: Entry) {
         
         let indexOfEntry = entriesArray.indexOf(entry)
@@ -33,5 +55,7 @@ class EntryController {
         if let index = indexOfEntry {
             entriesArray.removeAtIndex(index)
         }
+        
+        saveToPersistence(self.entriesArray)
     }
 }
