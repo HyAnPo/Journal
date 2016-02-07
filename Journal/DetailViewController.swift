@@ -17,6 +17,20 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Variables
     var entry: Entry?
     
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let entry = self.entry {
+            updateWithEntry(entry)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     //MARK: - Actions
     @IBAction func saveButtonTapped(sender: UIButton) {
         
@@ -30,6 +44,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
                 let newEntry = Entry(timestamp: NSDate(), title: title, body: body)
                 EntryController.sharedInstance.addEntry(newEntry)
                 self.entry = newEntry
+                
+                //TODO: - Is this right?
+                EntryController.sharedInstance.saveToPersistenceStorage(EntryController.sharedInstance.entriesArray)
             }
         }
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -38,15 +55,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func clearButtonTapped(sender: UIButton) {
         titleTextField.text = nil
         bodyTextView.text = nil
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     //MARK: - Delegate functions
@@ -59,8 +67,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     func updateWithEntry(entry: Entry) {
         self.entry = entry
         
-        titleTextField.text = entry.title
-        bodyTextView.text = entry.body
+        self.titleTextField.text = entry.title
+        self.bodyTextView.text = entry.body
     }
     
 }

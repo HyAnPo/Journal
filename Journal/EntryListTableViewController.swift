@@ -41,7 +41,65 @@ class EntryListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            EntryController.sharedInstance.entriesArray.removeAtIndex(indexPath.row)
+            
+            let entry = EntryController.sharedInstance.entriesArray[indexPath.row]
+            print(EntryController.sharedInstance.entriesArray.count)
+            EntryController.sharedInstance.deleteEntry(entry)
+            print(EntryController.sharedInstance.entriesArray.count)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            //TODO: - Is this right?
+            EntryController.sharedInstance.saveToPersistenceStorage(EntryController.sharedInstance.entriesArray)
+        }
+    }
+    
+    //MARK: - NAVIGATION
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if  segue.identifier == "toEntryDetailView" {
+            
+            if let detailViewController = segue.destinationViewController as? DetailViewController {
+                
+                let indexPath = tableView.indexPathForSelectedRow
+                
+                if let selectedRow = indexPath?.row {
+                    let entry = EntryController.sharedInstance.entriesArray[selectedRow]
+                    detailViewController.entry = entry
+                }
+            }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

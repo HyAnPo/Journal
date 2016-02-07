@@ -10,16 +10,48 @@ import Foundation
 
 class EntryController {
     
+    private let kEntriesKey = "entries"
+    
     static let sharedInstance = EntryController()
     
-    var entriesArray: [Entry] = []
+    var entriesArray: [Entry]
+    
+    init() {
+        
+        self.entriesArray = []
+        
+        self.loadfromPersistenceStorage()
+    }
     
     func addEntry(entry: Entry) {
         entriesArray.append(entry)
     }
     
-    func deleteEntry(indexPath: NSIndexPath) {
-        entriesArray.removeAtIndex(indexPath.row)
+    func deleteEntry(entry: Entry) {
+        
+        if let entryIndex = entriesArray.indexOf(entry) {
+            entriesArray.removeAtIndex(entryIndex)
+            
+        }
+    }
+    
+    func saveToPersistenceStorage(entriesArray: [Entry]) {
+        
+        // create a dictionaryCopy for each entry in the array
+        let entriesDictionary = entriesArray.map({ $0.dictionaryCopy() })
+        
+        // Save to UserDefaults
+        NSUserDefaults.standardUserDefaults().setObject(entriesDictionary, forKey: kEntriesKey)
+    }
+    
+    func loadfromPersistenceStorage() {
+        
+        let entriesDictionariesFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey(kEntriesKey) as? [[String: AnyObject]]
+        
+        if let entriesDictionary = entriesDictionariesFromDefaults {
+            
+            self.entriesArray = entriesDictionary.map({Entry(dictionary: $0)!})
+        }
     }
     
 }
