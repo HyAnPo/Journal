@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        UserController.sharedController.createUser("devmtnTest@gmail.com", password: "1234")
+        UserController.sharedController.loginUser("devmtnTest@gmail.com", password: "1234")
+        
         return true
     }
 
